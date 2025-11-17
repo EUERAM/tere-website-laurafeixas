@@ -1,357 +1,735 @@
-/* VARIABLES AND STYLES */
+/* ==================================== */
+/* 1. VARIABLES GLOBALES Y RESET DE ESTILOS BASE */
+/* ==================================== */
 :root {
   --white: rgba(255, 255, 255, 1);
   --green: rgba(117, 191, 122, 1);
   --black: rgba(0, 0, 0, 1);
-  --light-gray: rgba(158, 157, 162, 1);
+  --light-gray: rgba(158, 157, 162, 1); /* Color: #9E9DA2 */
   --gray: rgba(139, 139, 165, 1);
   --dark-gray: rgba(39, 32, 66, 1);
   --radius: 5px;
-  --background: rgba(249, 249, 249, 1);
+  --Background: #f9f9f9; /* Color de fondo principal */
   --Dark-gray: #272042;
 }
-h1 {
-  font-size: 64px;
-  font-family: Inter;
-  font-weight: 700;
-  font-style: normal;
-  line-height: 65.91px;
-  text-decoration: none;
-  text-transform: none;
-}
-p {
-  font-size: 18px;
-  font-family: Inter;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 26px;
-  text-decoration: none;
-  text-transform: none;
+
+body {
+  background: var(--Background);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
   margin: 0;
-}
-.description {
-  font-size: 24px;
-  font-family: Inter;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 33px;
-  text-decoration: none;
-  text-transform: none;
-  color: var(--light-gray);
-}
-.button {
-  font-size: 24px;
-  font-family: Inter;
-  font-weight: 700;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
-}
-h2 {
-  font-size: 47px;
-  font-family: Inter;
-  font-weight: 900;
-  font-style: normal;
-  line-height: 50.35px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-}
-h3 {
-  font-size: 22px;
-  font-family: Inter;
-  font-weight: 800;
-  font-style: normal;
-  line-height: 50.35px;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin: 0;
-}
-.small-button {
-  font-size: 16px;
-  font-family: Inter;
-  font-weight: 700;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
-}
-.small {
-  font-size: 16px;
-  font-family: Inter;
-  font-weight: 400;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
 }
 
-/* HEADER */
-header {
-  padding-top: 80px;
+/* CLASES DE UTILIDAD */
+.black {
+  color: var(--black, #000);
 }
+
+.green {
+  color: var(--green); /* Esto es #75BF7A */
+}
+
+/* CONTENEDOR CENTRAL */
 .container {
   width: 1280px;
-  margin: auto; /* place div in the center */
+  margin: 0 auto; /* Centra el contenedor */
 }
+
 .flex {
   display: flex;
   justify-content: space-between;
 }
+
+/* ==================================== */
+/* 2. ESTILOS DE TIPOGRAFÍA BASE (Heredados/Globales) */
+/* ==================================== */
+
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 65.91px;
+  text-transform: none;
+}
+
+h2 {
+  font-size: 47px;
+  font-weight: 900;
+  line-height: 50.35px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black, #000); /* Color base del h2 (el .green lo sobrescribe) */
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 50.346px; /* 228.847% */
+  text-transform: uppercase;
+  margin: 0;
+  color: #000;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px; /* 144.444% */
+  margin: 0;
+  color: #9e9da2;
+  height: auto; /* Quitamos la altura fija de 91px */
+  align-self: stretch;
+}
+
+.description {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 33px;
+  color: var(--light-gray);
+}
+
+.button {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* ==================================== */
+/* 3. SECCIÓN HEADER */
+/* ==================================== */
+header {
+  padding-top: 80px;
+}
+
 .menu ul {
   list-style: none;
   display: flex;
   padding: 0;
-  /* gap: 20px; */
 }
+
 .menu a {
   color: var(--Dark-gray, #272042);
-  /* Normal */
-  font-family: Inter;
   font-size: 18px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 26px; /* 144.444% */
+  line-height: 26px;
   padding: 10px 30px;
-  text-decoration: none; /* get rid of underline */
+  text-decoration: none;
   transition: all 0.3s;
 }
+
 .menu a:hover {
   color: #75bf7a;
 }
+
 .menu .btn-help {
   border-radius: var(--radius);
-  background: var(--Green, #75bf7a);
-  color: white;
+  background: var(--green, #75bf7a);
+  color: var(--white);
 }
+
 .menu .btn-help:hover {
-  color: white;
-  background-color: black;
+  color: var(--white);
+  background-color: var(--black);
 }
 
-/* HOW IT WORKS */
+/* ==================================== */
+/* 4. SECCIÓN HERO */
+/* ==================================== */
+.hero {
+  padding-bottom: 85.23px;
+}
 
+.hero .flex {
+  align-items: flex-end;
+}
+
+/* Botones de descarga */
+.hero .btn-wrapper {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.hero .button-download,
+.link .subscribe-btn {
+  /* Combinamos estilos similares para botones grandes */
+  border-radius: var(--radius);
+  background: var(--dark-gray, #272042);
+  display: flex;
+  width: 260px;
+  height: 66.773px;
+  padding: 32px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 0;
+  text-transform: uppercase;
+}
+
+.hero .button-download .btn-icon {
+  width: 37px;
+  height: 42px;
+  flex-shrink: 0;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+/* ==================================== */
+/* 5. SECCIÓN LINK (Formulario de suscripción) */
+/* ==================================== */
+.link .link-container {
+  width: 1220px;
+
+  background: var(--green);
+  border-radius: 3.1px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  align-items: center;
+  gap: 127px;
+}
+
+.link .description {
+  margin: 0;
+  justify-self: start;
+  align-self: center;
+  color: var(--white);
+  font-size: 1.5rem;
+  line-height: 2.0625rem;
+  margin-left: 43.8px;
+}
+
+.link .subscribe {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.link .subscribe-input {
+  width: 499px;
+  height: 66.773px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 16px;
+  outline: none;
+}
+
+.link .subscribe-btn {
+  /* Estilos combinados con .hero .button-download */
+  width: 260px;
+}
+
+/* ==================================== */
+/* 6. SECCIÓN HOW IT WORKS */
+/* ==================================== */
 .how-it-works {
   padding-top: 80px;
 }
-.how-it-works .step {
-  margin-bottom: 50px;
-}
+
 .how-it-works .description {
   text-align: center;
   width: 620px;
-  margin: auto;
+  margin: 0 auto;
 }
+
 .row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-top: 60px;
 }
+
 .how-it-works .number {
   background-image: url("../img/step.png");
   width: 62px;
   height: 62px;
-  /* text styles */
-  color: #75bf7a;
+  color: var(--green);
   text-align: center;
-  font-family: Inter;
   font-size: 34.108px;
-  font-style: normal;
   font-weight: 800;
-  line-height: 37.019px; /* 108.537% */
-  /* to get number into the center */
+  line-height: 37.019px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.green {
-  color: var(--green);
-}
+/* ALINEACIÓN A LA DERECHA (Pasos 1 y 3) */
 .text-right {
   text-align: right;
 }
+
 .text-right .number {
-  margin-left: auto;
+  margin-left: auto; /* Alinea el bloque del número a la derecha */
 }
 
-/* Link section: green rounded container with left description and right form */
-.link .link-container {
-  background: var(--green);
-  border-radius: 3.1px;
-  padding: 30px 30px;
-  display: grid;
-  grid-template-columns: 25% 75%;
-  align-items: center;
-  gap: 127px; /* space between description and form */
-  margin: 0 auto; /* remove top margin so the gap is controlled by .hero padding-bottom */
+.how-it-works .step {
+  margin-bottom: 50px;
 }
 
-/* ensure description stays left and is readable on green */
-.link .description {
-  margin: 0;
-  justify-self: start;
-  align-self: center;
-  color: #fff;
-  font-family: Inter;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 2.0625rem; /* 137.5% */
-  margin-left: 43.8px;
-}
-
-/* form on the right */
-.link .subscribe {
+/* INDICADORES DE IMAGEN (Círculos) */
+.image-indicators {
   display: flex;
-  align-items: center;
-  gap: 11px; /* space between input and button */
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* text box: fixed size to match button */
-.link .subscribe-input {
-  width: 499px;
-  height: 66.773px; /* same height as the hero button */
-  padding: 0 16px;
-  box-sizing: border-box;
-  border-radius: var(--radius);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
-  font-size: 16px;
-  outline: none;
-}
-
-/* button */
-.link .subscribe-btn {
-  border-radius: var(--radius);
-  background: var(--dark-gray, #272042);
-  display: flex;
-  width: 260px;
-  height: 66.773px;
-  padding: 32px 28px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
+  margin-top: 59.32px;
+
+  /* Solución para recorte de SVG */
+  font-size: 1px;
+  line-height: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.image-indicators svg {
+  width: 12.772px;
+  height: 12.772px;
   flex-shrink: 0;
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  box-sizing: border-box;
-
-  /* typography */
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 0; /* 0% */
-  text-transform: uppercase; /* APPLY TO DRIVE in uppercase */
-}
-
-/* responsive: ensure stacking on small screens */
-@media (max-width: 640px) {
-  .link .link-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .link .subscribe {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .link .subscribe-input,
-  .link .subscribe-btn {
-    width: 100%;
-    height: auto;
-    padding: 12px 16px;
-  }
-}
-
-/* ensure hero can align children to flex-end but push the link down */
-.hero {
-  /* reserve exact space below hero so .link sits 85.23px below the buttons */
-  padding-bottom: 85.23px;
-}
-
-/* Hero download buttons */
-.hero .btn-wrapper {
-  display: flex;
-  gap: 16px;
-  margin-top: 20px;
-  margin-bottom: 0; /* moved spacing to .hero padding-bottom */
-  align-items: center;
-}
-
-/* button */
-.hero .button-download {
-  border-radius: var(--radius);
-  background: var(--dark-gray, #272042);
-  display: flex;
-  width: 260px;
-  height: 66.773px;
-  padding: 32px 28px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  color: var(--white);
-  border: none;
-  cursor: pointer;
-  box-sizing: border-box;
-
-  /* typography */
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 0; /* 0% as requested */
-  text-transform: uppercase; /* DOWNLOAD in uppercase */
-}
-
-/* icon slot: use your own image (img tag with class="btn-icon") */
-.hero .button-download .btn-icon {
-  width: 37px;
-  height: 42px;
-  flex-shrink: 0;
-  aspect-ratio: 37/42;
-  object-fit: contain;
-  display: inline-block;
-  margin-right: 10px; /* space between icon and text */
-}
-
-/* inline SVG fallback sizing (if you keep svg markup) */
-.hero .button-download svg {
-  width: 37px;
-  height: 42px;
-  flex-shrink: 0;
-  margin-right: 10px;
-  display: inline-block;
+  display: block; /* Solución para recorte */
   vertical-align: middle;
 }
 
-/* ensure img/svg don't stretch unexpectedly */
-.hero .button-download svg,
-.hero .button-download img {
-  max-width: 100%;
+/* ==================================== */
+/* 7. SECCIÓN BENEFITS (AJUSTADA Y FINALIZADA) */
+/* ==================================== */
+.benefits {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.benefits .benefits-title {
+  margin-bottom: 87.91px;
+}
+
+/* Contenedor de tarjetas: Apiladas y Centradas */
+.benefits-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Estilo BASE para todas las tarjetas (fondo, esquinas, sin sombra) */
+.benefits-card {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--white);
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+/* --- ESTILOS INDIVIDUALES POR TARJETA --- */
+
+/* 1. CONTENEDOR EXTERNO (benefit-slot-1) - El contenedor de 1276px */
+.benefit-slot-1 {
+  display: flex;
+  width: 1276px;
+  height: 304px;
+  padding: 0 215px 1.18px 1px;
+  align-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* 2. CONTENEDOR INTERNO (benefit-card-1) - La parte blanca de 1060px */
+/* 2. CONTENEDOR INTERNO (benefit-card-1) - La parte blanca de 1060px */
+.benefit-slot-1 .benefits-card.benefit-card-1 {
+  width: 1060px;
+  height: 302.82px;
+  padding: 24px 38px;
+  gap: 262px; /* Espacio entre el texto y la imagen */
+
+  /* --- AJUSTE CLAVE --- */
+  justify-content: flex-start; /* Asegura que el contenido (texto) inicie a la izquierda */
+  align-items: center;
+}
+
+/* ESTILOS PARA LAS OTRAS TARJETAS (Se mantienen igual) */
+.benefit-card-2 {
+  width: 900px;
+  height: 250px;
+  padding: 30px 50px;
+}
+
+.benefit-card-3 {
+  width: 1100px;
+  height: 350px;
+  padding: 40px 80px;
+}
+/* ---------------------------------------------------- */
+
+/* --- Estilos de Contenido Interno (Ajustados a las peticiones) --- */
+
+/* Contenedor de Texto (393px ancho, columna) */
+.benefits-card .benefits-inner {
+  display: flex;
+  width: 393px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+/* Contenedor de Número y Título (Alineación central) */
+.benefits-card .benefits-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Estilo del Número "01." (Propiedades exactas solicitadas) */
+.benefits-card .num {
+  color: #75bf7a;
+  font-family: Inter;
+  font-size: 88px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 118.8px;
+  flex-shrink: 0;
+  margin-top: 0; /* Ajustado para alineación central */
+  margin-bottom: 0;
+}
+
+/* Estilo del Título del Beneficio */
+.benefits-card .benefit-title {
+  color: var(--black);
+  font-size: 33.943px;
+  font-weight: 400;
+  line-height: 32.5px;
+  text-transform: none;
+  margin: 0;
+}
+
+/* Estilo de la Descripción (Propiedades exactas solicitadas) */
+.benefits-card .benefit-desc {
+  color: var(--light-gray);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  align-self: stretch;
+  margin-top: 12px;
   height: auto;
 }
 
-/* responsive: stack buttons on narrow screens */
-@media (max-width: 700px) {
-  .hero .btn-wrapper {
-    flex-direction: column;
-    gap: 12px;
-    /* no margin-bottom here because .hero padding handles the spacing */
-  }
-  .hero .button-download {
-    width: 100%;
-    height: auto;
-    padding: 16px;
-    justify-content: flex-start;
-  }
+/* --- ESTILO DE IMAGEN PARA EL BENEFICIO 1 (Simplificado) --- */
+.benefit-img-1 {
+  /* La imagen es un hijo directo de .benefits-card.benefit-card-1 */
+  display: flex;
+  width: 256.789px;
+  height: 254.82px;
+  padding-bottom: 0.056px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  object-fit: contain;
 }
-.hero .flex {
-  align-items: flex-end;
+/* --- ESTILOS INDIVIDUALES POR TARJETA --- */
+/* ... tus reglas existentes ... */
+
+/* 1. CONTENEDOR EXTERNO (benefit-slot-1) - El contenedor de 1276px */
+.benefit-slot-1 {
+  /* ... estilos existentes ... */
+}
+
+/* 2. CONTENEDOR INTERNO (benefit-card-1) - La parte blanca de 1060px */
+.benefit-slot-1 .benefits-card.benefit-card-1 {
+  /* ... estilos existentes ... */
+  justify-content: flex-start; /* Asegurado */
+}
+
+/* --- NUEVAS REGLAS PARA BENEFICIO 3 (Igual que el 1) --- */
+
+/* 3. CONTENEDOR EXTERNO (benefit-slot-3) - El contenedor de 1276px */
+.benefit-slot-3 {
+  /* Copia exacta de .benefit-slot-1 */
+  display: flex;
+  width: 1276px;
+  height: 304px;
+  padding: 0 215px 1.18px 1px;
+  align-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* 4. CONTENEDOR INTERNO (benefit-card-3) - La parte blanca de 1060px */
+.benefit-slot-3 .benefits-card.benefit-card-3 {
+  /* Ajuste para anular los estilos genéricos de .benefit-card-3 */
+  width: 1060px;
+  height: 302.82px;
+  padding: 24px 38px;
+  gap: 262px;
+  justify-content: flex-start; /* Asegura la alineación Izquierda */
+  align-items: center;
+}
+
+/* ESTILOS PARA LAS OTRAS TARJETAS (Ajustamos el 2 para que no sea un slot) */
+/* La regla .benefit-card-2 ya existe y no necesita cambio de estructura. */
+/* La regla .benefit-card-3 ya no es necesaria en este bloque, ya que está anidada. */
+
+/* --- ESTILOS DE IMAGEN --- */
+
+/* Estilo de la imagen 1 (ya existe) */
+.benefit-img-1 {
+  /* ... estilos existentes ... */
+}
+
+/* Estilo de la imagen 3 (Copia exacta del estilo de imagen 1) */
+.benefit-img-3 {
+  display: flex;
+  width: 256.789px;
+  height: 254.82px;
+  padding-bottom: 0.056px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+/* 5. CONTENEDOR EXTERNO (benefit-slot-2) - Slot Invertido */
+.benefit-slot-2 {
+  /* Propiedades solicitadas para el contenedor más grande (1276px) */
+  display: flex;
+  width: 1276px;
+  height: 304px;
+  padding: 0 0 1.18px 221px; /* Padding ajustado para alinear correctamente */
+  justify-content: flex-end; /* Asegura que la tarjeta interna se pegue a la derecha */
+  align-items: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* 6. CONTENEDOR INTERNO (benefit-card-2) - La parte blanca de 1060px (Invertido) */
+/* 6. CONTENEDOR INTERNO (benefit-card-2) - La parte blanca de 1060px (Imagen Izq, Texto Der) */
+.benefit-slot-2 .benefits-card.benefit-card-2 {
+  /* Propiedades solicitadas para la tarjeta con fondo blanco (1060px) */
+  display: flex;
+  width: 1060px;
+  height: 302.82px;
+  padding: 24px 38px 24px 66px;
+  align-items: center;
+  gap: 262px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--white);
+  box-sizing: border-box;
+
+  /* CLAVE: Dirección NORMAL (row) para que la imagen (puesta primero en HTML) vaya a la izquierda */
+  flex-direction: row;
+  /* Asegura que el contenido (Imagen y Texto) inicie desde la izquierda de la tarjeta */
+  justify-content: flex-start;
+}
+/* Contenedor de Texto (393px ancho, columna) */
+.benefits-card .benefits-inner {
+  display: flex;
+  width: 393px;
+  flex-direction: column;
+  /* Se mantiene flex-start para que el texto dentro de este bloque se alinee a la izquierda (como en el 01.) */
+  align-items: flex-start;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+/* Nota: No necesitamos una regla especial para .benefit-slot-2 .benefits-inner 
+si queremos que el texto dentro de ese bloque siga alineado a la izquierda. */
+/* 7. ESTILOS DE IMAGEN PARA EL BENEFICIO 2 */
+.benefit-img-2 {
+  display: flex;
+  width: 256.789px;
+  height: 254.82px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #fff;
+}
+
+/* ==================================== */
+/* 8. SECCIÓN FOOTER (COMPLETO Y FINAL) */
+/* ==================================== */
+footer {
+  /* Contenedor principal solicitado */
+  width: 1470px;
+  height: 553px;
+  flex-shrink: 0;
+  background: var(--white, #fff);
+
+  /* CLAVE: Establece el contexto para los elementos internos con posición absoluta */
+  position: relative;
+
+  /* Permite el flujo de elementos internos */
+  display: flex;
+  flex-direction: column;
+
+  /* Centrado del contenedor de 1440px */
+  margin: 0 auto;
+}
+
+/* --- LOGO (img/Logo2.png) --- */
+.footer-logo {
+  position: absolute;
+  width: 128.701px;
+  height: 36.219px;
+  flex-shrink: 0;
+  top: 120.86px;
+  left: 148px;
+}
+
+/* --- LÍNEA DIVISORIA (ABSOLUTA) --- */
+.footer-line {
+  width: 1470px;
+  height: 1px;
+  background: var(--gray, #8b8ba5);
+
+  /* CLAVE: Lo hacemos absoluto para asegurar su posición y eliminar conflictos */
+  position: absolute;
+  top: 254px; /* Posición vertical fija */
+  margin: 0;
+}
+
+/* --- TEXTO DE COPYRIGHT (38px DEBAJO DE LA LÍNEA) --- */
+.footer-copyright-text {
+  /* Propiedades solicitadas */
+  width: 590px;
+  color: var(--Green, #75bf7a);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  /* Posicionamiento */
+  position: absolute;
+  /* Cálculo: 254px (línea top) + 1px (altura línea) + 38px (gap) = 293px */
+  top: 293px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Limpieza de márgenes */
+  margin: 0;
+  z-index: 10; /* Asegura que se vea sobre otros elementos */
+}
+
+/* --- CONTENEDORES DE INFORMACIÓN (Estilos Base Compartidos) --- */
+.footer-info-container {
+  /* Dimensiones solicitadas (206px x 152px) */
+  width: 206px;
+  height: 152px;
+  flex-shrink: 0;
+
+  position: absolute;
+  top: 68px; /* Posición vertical de los bloques de información */
+
+  /* Configuración de Flexbox */
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Elimina espacio entre título y contenido */
+  padding: 0;
+}
+
+/* POSICIONES ESPECÍFICAS DE LOS BLOQUES DE INFORMACIÓN */
+.footer-info-container-1 {
+  left: 360px;
+}
+.footer-info-container-2 {
+  left: 639px; /* Calculado: 360px + 206px + 73px */
+}
+
+/* --- TÍTULO (Be Our Friend/Quick Links) --- */
+.footer-info-container .footer-block-title {
+  width: 206px;
+  color: var(--Dark-gray, #272042);
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 51px;
+  margin: 0;
+  gap: 11px;
+}
+
+/* --- CONTENIDO DE CONTACTO/ENLACES --- */
+.footer-info-container .footer-content {
+  display: flex;
+  flex-direction: column;
+
+  /* CLAVE: Espacio de 11px entre los párrafos */
+  gap: 11px;
+
+  margin-top: 0;
+}
+.footer-info-container .footer-content p {
+  width: 206px;
+  color: var(--gray, #8b8ba5);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  margin: 0;
+}
+
+/* --- BLOQUE DE DESCARGAS (CONTENEDOR) --- */
+.footer-downloads {
+  position: absolute;
+  top: 119px; /* Posición vertical final */
+  left: 951px; /* Posición horizontal final */
+}
+
+/* --- AJUSTE DE ESPACIADO INTERNO HORIZONTAL (Botones) --- */
+.footer-downloads .btn-wrapper {
+  display: flex;
+  flex-direction: row; /* Botones uno al lado del otro */
+  gap: 51px; /* Espacio horizontal entre botones */
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* --- ESTILOS DE BOTÓN COMPACTO (.button-download-compact) --- */
+.button-download-compact {
+  /* Dimensiones fijas solicitadas */
+  width: 174px;
+  height: 46px;
+
+  /* Flexbox y Padding */
+  display: flex;
+  padding: 0 22px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  border-radius: 5px;
+  background: var(--Dark-gray, #272042);
+
+  /* CRUCIAL: Incluye padding y border en width/height */
+  box-sizing: border-box;
+
+  /* Estilos de Texto */
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: normal;
+
+  /* Reset */
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- AJUSTE DE ÍCONO (.btn-icon-compact) --- */
+.button-download-compact .btn-icon-compact {
+  width: 21px;
+  height: 24px;
+  flex-shrink: 0;
+  margin: 0;
 }
